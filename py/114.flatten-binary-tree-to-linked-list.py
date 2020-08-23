@@ -12,7 +12,9 @@
 #         self.left = left
 #         self.right = right
 
-## 递归
+## 递归：
+## 先递归平整左子树，再递归平整右子树
+## 连接平整后的左右子树
 class Solution:
     def flatten(self, root: TreeNode) -> None:
         """

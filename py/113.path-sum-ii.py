@@ -11,6 +11,8 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+## dfs 递归
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
         res = []

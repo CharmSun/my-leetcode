@@ -7,18 +7,21 @@
 # @lc code=start
 from typing import List
 
-## 思路有点像是数字电路设计一个计数器.
-# 此题的情况就是为每一位二进制进行计数,计数三次归零,
-# 那么最后没有归零的数就是出现一次的那个数.
-# 设计思路与逻辑门电路设计一样.
+## 对所有树的每一bit位，求和，然后对3求余就是只出现1次的数在当前位的值（0或1）。
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        a = b = 0
-        for num in nums:
-            tempA = (~a & b & num) + (a & ~b & ~num)
-            b = (~a & ~b & num) + (~a & b & ~num)
-            a = tempA
-        return b
-        
+        res = 0
+        for i in range(32):
+            temp = 0
+            bit = 1 << i
+            for num in nums:
+                if num & bit != 0:
+                    temp += 1
+            if temp % 3 != 0:
+                res |= bit
+
+        return res - 2**32 if res > 2**31-1 else res
+
+print(Solution().singleNumber([-1, -1, -1, -3]))        
 # @lc code=end
 

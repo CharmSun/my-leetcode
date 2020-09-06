@@ -7,6 +7,7 @@
 # @lc code=start
 from typing import List
 
+## 使用栈，遇到操作符，取出栈顶两个数，计算结果再入栈，注意负数除法的计算结果
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []

@@ -17,13 +17,9 @@
 class Solution:
     def detectCycle(self, head: ListNode) -> ListNode:
         fast = slow = head
-        while fast:
-            fast = fast.next
+        while fast and fast.next:
             slow = slow.next
-            if fast:
-                fast = fast.next
-            else:
-                break
+            fast = fast.next.next
             if fast == slow:
                 slow = head
                 while slow != fast:

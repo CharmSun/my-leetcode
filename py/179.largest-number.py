@@ -9,6 +9,7 @@ from typing import List
 from functools import cmp_to_key
 
 ## 排序时自定义比较函数，'3' + '30' > '30' + '3'
+## 返回结果注意都是 0 的情形
 class Solution:
     def largestNumber(self, nums: List[int]) -> str:
         def cmp(a,b):

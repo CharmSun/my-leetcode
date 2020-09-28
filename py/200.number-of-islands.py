@@ -22,9 +22,9 @@ class Solution:
         return count
     
     def dfs(self, row, col, grid):
-        if row < 0 or row >= len(grid) or \
-        col < 0 or col >= len(grid[0]) or \
-            grid[row][col] == '0':
+        if row < 0 or row >= len(grid) \
+            or col < 0 or col >= len(grid[0]) \
+            or grid[row][col] == '0':
             return
         grid[row][col] = '0'
         self.dfs(row + 1, col, grid)

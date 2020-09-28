@@ -10,7 +10,7 @@ from typing import List
 ## 将10位字符序列看成二进制，换算成十进制，作为hash_map的key, 节省空间
 ## 只有ACGT四种字符，看成 00， 01，10， 11
 ## seq_set 用set 保存已有的字符序列代表的hash值
-## 结果res也用set记录，放置结果重复
+## 结果res也用set记录，防止结果重复
 
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:

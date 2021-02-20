@@ -36,6 +36,47 @@ class Solution:
         start = (maxCenter + 1 - maxRadius) // 2
         mlen = maxRadius - 1
         return s[start: start + mlen]
+
+    ## 动态规划：时间O(n**2)，空间O(n**2)
+    def longestPalindrome1(self, s: str) -> str:
+        l = len(s)
+        dp = [[False for i in range(l)] for i in range(l)]
+        longestPalindrome = ''
+        longestLen = 0
+        for j in range(l):
+            for i in range(j+1):
+                if j - i <= 1:
+                    if s[i] == s[j]:
+                        dp[i][j] = True
+                        if longestLen < j - i + 1:
+                            longestLen = j - i + 1
+                            longestPalindrome = s[i:j+1]
+                else:
+                    if s[i] == s[j] and dp[i+1][j-1]:
+                        dp[i][j] = True
+                        if longestLen < j - i + 1:
+                            longestLen = j - i + 1
+                            longestPalindrome = s[i:j+1]
+        return longestPalindrome
+    
+    ## 中心扩展法：时间O(n**2)
+    def longestPalindrome2(self, s: str) -> str:
+        start = 0
+        maxlen = 1
+        for i in range(len(s)):
+            len1 = self.centerexpand(s, i, i)
+            len2 = self.centerexpand(s, i , i+1)
+            mlen = max(len1, len2)
+            if mlen > maxlen:
+                maxlen = mlen
+                start = i - (maxlen - 1) // 2
+        return s[start: start + maxlen]
+
+    def centerexpand(self, s, l, r) -> int:
+        while l >= 0 and r < len(s) and s[l] == s[r]:
+            l -= 1
+            r += 1
+        return r - l - 1
         
 # @lc code=end
 

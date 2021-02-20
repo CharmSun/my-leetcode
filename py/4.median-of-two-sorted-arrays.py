@@ -9,7 +9,8 @@ from typing import List
 
 ## 折半查找：
 ## 1、判断num1， nums2长短，m取短的数组，n取长的数组
-## 2、i 在[0,m]中查找，分情况增大或缩小，确定左边部分，和右边部分，计算中位值
+## 2、i 在[0,m]中折半查找，分情况增大或缩小，确定左边部分，和右边部分，计算中位值
+## 3、m+n为奇数时，为max(nums1[i-1], nums2[j-1])；为偶数时，为（max(nums1[i-1], nums2[j-1]) + min(nums1[i], nums2[j])）/ 2
 
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:

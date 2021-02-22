@@ -9,7 +9,7 @@ from typing import List
 
 ## 1、先用一个哈希表 wordsDict 来记录words里的所有词，
 ## 2、然后我们从0开始遍历，用left来记录左边界的位置，count表示当前已经匹配的单词的个数。
-## 3、如果当前遍历的到的单词在 wordsDict 中存在，那么我们将其加入另一个哈希表 curMap 中，
+## 3、如果当前遍历的到的单词在 wordsDict 中存在，那么我们将其加入另一个哈希表 curMap 中，再比较curMap 和 wordsDict
 class Solution:
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
         res = []

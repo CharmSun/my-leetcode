@@ -28,7 +28,7 @@ class Solution:
                 pos_star = j
                 j += 1
             elif pos_star != -1:
-                matched_i += 1
+                matched_i += 1 # 注意：需要增加matched_i，表示之前的*匹配 0 至多个字符
                 i = matched_i
                 j = pos_star + 1
             else:

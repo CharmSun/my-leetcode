@@ -18,6 +18,7 @@ class Solution:
             if nums[l] == l+1:
                 l += 1
             elif (nums[l] < l+1) or (nums[l] > r) or (nums[l] == nums[nums[l] - 1]):
+                # 1、小于l+1; 2、大于r; 3、有重复值
                 r -= 1
                 nums[l] = nums[r]
             else:

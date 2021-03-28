@@ -11,7 +11,7 @@ class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         indegree = [0] * numCourses
         for e in prerequisites:
-            indegree[e[1]] += 1
+            indegree[e[0]] += 1
         queue = []
         for v in range(numCourses):
             if indegree[v] == 0:
@@ -21,10 +21,10 @@ class Solution:
             v = queue.pop(0)
             count += 1
             for e in prerequisites:
-                if e[0] == v:
-                    indegree[e[1]] -= 1
-                    if indegree[e[1]] == 0:
-                        queue.append(e[1])
+                if e[1] == v:
+                    indegree[e[0]] -= 1
+                    if indegree[e[0]] == 0:
+                        queue.append(e[0])
         return count == numCourses
 
 numCourses = 3

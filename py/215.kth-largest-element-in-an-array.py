@@ -8,6 +8,7 @@
 from typing import List
 
 class Solution:
+    # 利用快速排序partition 思想
     def findKthLargest(self, nums: List[int], k: int) -> int:
         return self.qSelect(nums, k, 0, len(nums) - 1)
     

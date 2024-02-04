@@ -7,7 +7,7 @@
 # @lc code=start
 from typing import List
 
-## 对所有树的每一bit位，求和，然后对3求余就是只出现1次的数在当前位的值（0或1）。
+## 对所有数的每一bit位，求和，然后对3求余就是只出现1次的数在当前位的值（0或1）。
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         res = 0
